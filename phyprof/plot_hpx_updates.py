@@ -1,20 +1,29 @@
-ue#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Fri May 24 18:35:07 2019
 
-@author: shahrzad
+__license__ = """ 
+Copyright (c) 2020 Shahrzad Shirzad
+Copyright (c) 2020 R. Tohid
+
+Distributed under the Boost Software License, Version 1.0. (See accompanying
+file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 """
 
-import glob
-import numpy as np
-from matplotlib import pyplot as plt
+import csv
 import datetime
+import glob
+import math
+import matplotlib.tri as mtri
+import numpy as np
+import random
+
+from matplotlib import pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
+from mpl_toolkits import mplot3d
+
 now = datetime.datetime.now()
 date_str=now.strftime("%Y-%m-%d-%H%M")
 simdsize=4
-import math
-import csv
 
 #hpx_dir='/home/shahrzad/repos/Blazemark/data/matrix/dmatdmatadd/01-04-2019-1027'
 hpx_dir='/home/shahrzad/repos/Blazemark/data/matrix/06-13-2019/marvin/'
@@ -24,7 +33,6 @@ openmp_dir_1='/home/shahrzad/repos/Blazemark/data/openmp/all/'
 
 perf_directory='/home/shahrzad/repos/Blazemark/data/performance_plots/matrix/06-13-2019/marvin'
 
-from matplotlib.backends.backend_pdf import PdfPages
 
 def create_dict(directory):
     thr=[]
@@ -1051,7 +1059,6 @@ perf_directory='/home/shahrzad/repos/Blazemark/data/performance_plots/matrix/08-
 ################################################################
 #3d plot
 ################################################################
-from mpl_toolkits import mplot3d
 fig = plt.figure()
 ax = plt.axes(projection='3d')
 # Data for a three-dimensional line
@@ -1067,8 +1074,7 @@ ydata = np.cos(zdata) + 0.1 * np.random.randn(100)
 ax.scatter3D(grain_sizes, block_sizes, results, c=results, cmap='Greens');
 
 
-import matplotlib.tri as mtri
-import math
+
 
 
 animation=0
@@ -2710,13 +2716,13 @@ for node in d_hpx.keys():
             plt.show()
             pp.close() 
 
-
 import random
 
 i=1
 for node in d_hpx.keys():
     for benchmark in benchmarks:
         for m in [m for m in mat_sizes[benchmark] if m>700]: #[230., 300., 455., 690.,793.]: #
+import random
 
             pp = PdfPages(perf_directory+node+'_bath_tub_'+benchmark+'_different_matrix_sizes_'+str(th)+'.pdf')
             plt.figure(i)
@@ -2798,13 +2804,13 @@ for node in d_hpx.keys():
             pp.close()             
 ##########################################
 #3d plot
-##########################################
-from mpl_toolkits import mplot3d
-import numpy as np
+import randomfrom mpl_toolkits import mplot3d
+import randomimport numpy as np
 import matplotlib.pyplot as plt
 fig = plt.figure()
 ax = plt.axes(projection='3d')
 ax = plt.axes(projection='3d')
+##################import random########################
 
 # Data for a three-dimensional line
 zline = np.linspace(0, 15, 1000)
