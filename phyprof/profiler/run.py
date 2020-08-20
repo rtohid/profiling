@@ -1,19 +1,19 @@
 from __future__ import absolute_import
 
 __license__ = """ 
-Copyright (c) 2020 R. Tohid
+Copyright (c) 2020 R. Tohid (@rtohid)
 
 Distributed under the Boost Software License, Version 1.0. (See accompanying
 file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 """
 
-from phyprof.computation import Distributed, CPU, GPU
-from phyprof.runtime import HPX
+from phyprof.profiler.context.runtime import Distributed, CPU, GPU
+from phyprof.profiler.context.runtime import Tiramisu
 
 
 class Runtime:
     def __init__(self, runtime, *args, **kwargs):
-        self.runtime = runtime(*args, **kwargs)
+        self.instance = runtime(*args, **kwargs)
 
 
 class Run:
@@ -30,5 +30,5 @@ node_1 = [CPU(16, 4)]
 
 computation = Distributed(node_0, node_1)
 run = Run(HPX, computation)
-print(run.runtime.runtime)
+print(run.runtime.instance)
 print(run.computation)
